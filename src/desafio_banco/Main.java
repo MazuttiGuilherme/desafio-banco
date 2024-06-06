@@ -8,13 +8,17 @@ public class Main {
 		
 		Conta cc = new ContaCorrente(mazutti);
 		Conta poupanca = new ContaPoupanca(mazutti);
+		Conta investimento = new ContaInvestimento(mazutti, 5.0);
 		
 		cc.depositar(100);
 		cc.transferir(100, poupanca);
 		cc.depositar(200);
+		investimento.depositar(1000);
+		investimento.calcularRendimento();
+		investimento.imprimirExtrato();
 		
 		cc.imprimirExtrato();
 		poupanca.imprimirExtrato();
+		
 	}
-
 }

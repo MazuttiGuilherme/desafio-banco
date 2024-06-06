@@ -9,6 +9,7 @@ public abstract class Conta implements IConta{
 	protected int numero;
 	protected double saldo;
 	protected Cliente cliente;
+	protected int taxaRendimento;
 	
 	
 	public Conta(Cliente cliente) {
@@ -31,6 +32,13 @@ public abstract class Conta implements IConta{
 		
 	}
 
+	public void calcularRendimento() {
+		double rendimento = this.saldo * (this.taxaRendimento / 100);
+		this.saldo += rendimento;
+		System.out.println("Rendimento calculado: R$" + rendimento);
+		
+	}
+	
 	public int getAgencia() {
 		return agencia;
 	}
@@ -42,6 +50,7 @@ public abstract class Conta implements IConta{
 	public double getSaldo() {
 		return saldo;
 	}
+
 
 	@Override
 	public void sacar(double valor) {
@@ -66,4 +75,7 @@ public abstract class Conta implements IConta{
 		System.out.println(String.format("Conta: %d", this.numero));
 		System.out.println(String.format("Saldo: %.2f", this.saldo));
 	}
+
+
+
 }
